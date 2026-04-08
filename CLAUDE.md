@@ -57,13 +57,24 @@ TIER_TITLES: Record<number, TierTitle>
 - Changes here affect both CLI and web — test thoroughly
 - Any new tier/title/emoji must be updated in `tier.ts`
 
-## Git Conventions
+## Git Workflow
 
-- **Branch**: `feat/`, `fix/`, `refactor/` prefixes
-- **Commit**: Conventional Commits format (`feat:`, `fix:`, `refactor:`, etc.)
-- **PR**: squash merge to main
-- **Deploy**: push `v*` tag → CI builds, tests, publishes to npm
-- **Branches**: auto-deleted after merge
+**main 브랜치는 보호됨 — direct push 금지. 반드시 PR을 통해서만 merge.**
+
+```
+feature branch → PR → CI 통과 → squash merge → (필요 시) v* 태그 → npm 배포
+```
+
+1. **Branch**: `feat/`, `fix/`, `refactor/`, `docs/` prefix로 생성
+2. **Commit**: Conventional Commits format (`feat:`, `fix:`, `refactor:`, etc.)
+3. **PR**: squash merge to main
+4. **Deploy**: merge 후 `v*` 태그 push → CI가 build + test + npm publish
+5. **Branches**: merge 후 자동 삭제
+
+**절대 하지 말 것:**
+- main에 직접 push
+- CI 통과 전 merge
+- 태그 없이 npm publish
 
 ## Testing
 
