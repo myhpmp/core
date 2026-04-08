@@ -61,20 +61,34 @@ TIER_TITLES: Record<number, TierTitle>
 
 **main 브랜치는 보호됨 — direct push 금지. 반드시 PR을 통해서만 merge.**
 
+**PR 생성 전에 반드시 `/review` 를 실행하여 팀 리뷰를 통과해야 한다. 리뷰 없이 PR/merge/배포 금지.**
+
 ```
-feature branch → PR → CI 통과 → squash merge → (필요 시) v* 태그 → npm 배포
+feature branch → `/review` 팀 리뷰 통과 → PR + merge 자동 → 사용자에게 태그 버전 확인 → npm 배포
 ```
 
 1. **Branch**: `feat/`, `fix/`, `refactor/`, `docs/` prefix로 생성
 2. **Commit**: Conventional Commits format (`feat:`, `fix:`, `refactor:`, etc.)
-3. **PR**: squash merge to main
-4. **Deploy**: merge 후 `v*` 태그 push → CI가 build + test + npm publish
-5. **Branches**: merge 후 자동 삭제
+3. **PR**: CI 통과 필수 → squash merge
+4. **Tag & Deploy**: 태그 기준에 따라 `v*` 태그 push → CI가 build + test + npm publish
+5. **Branches**: merge 후 삭제
+
+### 태그(배포) 기준
+
+태그는 **사용자가 수동으로** push한다. CI는 태그를 감지하여 build + test + npm publish를 실행한다.
+
+| 태그 | 언제 | 예시 |
+|------|------|------|
+| **patch** (v1.0.X) | 버그 수정, 사용자에게 영향 있는 fix | `fix:` 커밋 |
+| **minor** (v1.X.0) | 새 API 추가, 동작 변경 (하위 호환) | `feat:` 커밋 |
+| **major** (vX.0.0) | breaking change (기존 API 호환 깨짐) | CLI/web 동시 업데이트 필요 |
+| **태그 안 함** | 코드 변경 없음 (docs, chore, config) | `docs:`, `chore:` 커밋 |
 
 **절대 하지 말 것:**
 - main에 직접 push
 - CI 통과 전 merge
 - 태그 없이 npm publish
+- 코드 변경 없는 커밋에 태그 달기
 
 ## Testing
 
