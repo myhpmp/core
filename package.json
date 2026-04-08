@@ -1,6 +1,6 @@
 {
   "name": "@myhpmp/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shared core logic for My HP/MP — level system, EXP calculator, tier data, i18n",
   "type": "module",
   "main": "dist/index.js",
@@ -13,7 +13,13 @@
     "test": "vitest run",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["myhpmp", "rpg", "level", "exp", "gamification"],
+  "keywords": [
+    "myhpmp",
+    "rpg",
+    "level",
+    "exp",
+    "gamification"
+  ],
   "author": "imironjin",
   "license": "MIT",
   "repository": {
