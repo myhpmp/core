@@ -2,7 +2,10 @@ export function calcTokenExp(tokens: number): number {
   return Math.floor(tokens / 1000);
 }
 
-export function calcSessionExp(): number {
+export const DAILY_SESSION_CAP = 30;
+
+export function calcSessionExp(dailySessionCount: number = 0): number {
+  if (dailySessionCount >= DAILY_SESSION_CAP) return 0;
   return 25;
 }
 

@@ -2,8 +2,8 @@
 export const TIER_EMOJIS: Record<number, string> = {
   0: '🌱',
   1: '⚔️',
-  2: '🛡️',
-  3: '🧙',
+  2: '🛠️',
+  3: '🏗️',
   4: '🔮',
   5: '👑',
   6: '🐉',
@@ -21,14 +21,14 @@ export interface TierTitle {
 
 /** Complete tier title data */
 export const TIER_TITLES: Record<number, TierTitle> = {
-  0: { ko: '초보 모험가', en: 'Novice Adventurer', emoji: '🌱' },
-  1: { ko: '견습 전사', en: 'Apprentice Warrior', emoji: '⚔️' },
-  2: { ko: '숙련 기사', en: 'Skilled Knight', emoji: '🛡️' },
-  3: { ko: '마법사', en: 'Mage', emoji: '🧙' },
-  4: { ko: '대마법사', en: 'Archmage', emoji: '🔮' },
-  5: { ko: '아크메이지', en: 'Grand Archmage', emoji: '👑' },
-  6: { ko: '전설의 코드드래곤', en: 'Legendary Code Dragon', emoji: '🐉' },
-  7: { ko: '초월자', en: 'Transcendent', emoji: '⚡' },
+  0: { ko: '프롬프트 뉴비', en: 'Prompt Newbie', emoji: '🌱' },
+  1: { ko: '토큰 익스플로러', en: 'Token Explorer', emoji: '⚔️' },
+  2: { ko: '프롬프트 엔지니어', en: 'Prompt Engineer', emoji: '🛠️' },
+  3: { ko: '컨텍스트 아키텍트', en: 'Context Architect', emoji: '🏗️' },
+  4: { ko: '프롬프트 소서러', en: 'Prompt Sorcerer', emoji: '🔮' },
+  5: { ko: '모델 마스터', en: 'Model Master', emoji: '👑' },
+  6: { ko: '컨텍스트 오버로드', en: 'Context Overlord', emoji: '🐉' },
+  7: { ko: '신서틱 마인드', en: 'Synthetic Mind', emoji: '⚡' },
 };
 
 export function getTierEmoji(tierIndex: number): string {
