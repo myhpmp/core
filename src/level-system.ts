@@ -57,7 +57,7 @@ export function getLevelInfo(totalExp: number): LevelInfo {
   };
 }
 
-export function getTierForLevel(level: number): Tier {
+function getTierForLevel(level: number): Tier {
   for (const tier of TIERS) {
     if (level >= tier.startLevel && level <= tier.endLevel) {
       return tier;
@@ -66,7 +66,7 @@ export function getTierForLevel(level: number): Tier {
   return TIERS[7];
 }
 
-export function getStars(level: number): number {
+function getStars(level: number): number {
   const tier = getTierForLevel(level);
   const tierSize = tier.endLevel === Infinity ? 10 : tier.endLevel - tier.startLevel + 1;
   const positionInTier = level - tier.startLevel;
