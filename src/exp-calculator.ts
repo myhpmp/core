@@ -3,7 +3,3 @@ export function calcTokenExp(tokens: number): number {
   return Math.floor(tokens / 1000);
 }
 
-export function calcStreakBonus(streakDays: number): number {
-  return Math.min(streakDays, 30) * 5;
-}
-
